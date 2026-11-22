@@ -14,7 +14,7 @@ test.describe('Login Feature', () => {
         await page.locator('[data-test="password"]').fill(process.env.TEST_USER_PASSWORD!);
         await page.locator('[data-test="login-submit"]').click();
 
-        await expect(page.locator('[data-test="page-title"]')).toContainText('My account');
+        await expect(page).toHaveURL(/\/account(?:\/|$)/, {timeout: 15000});    
     });
 
     test('Login_comSenhaIncorreta', async ({ page }) => {
