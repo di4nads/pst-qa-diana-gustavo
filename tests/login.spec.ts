@@ -10,8 +10,8 @@ test.describe('Login Feature', () => {
 
         await page.locator('[data-test="nav-sign-in"]').click();
 
-        await page.locator('[data-test="email"]').fill('customer@practicesoftwaretesting.com');
-        await page.locator('[data-test="password"]').fill('welcome01');
+        await page.locator('[data-test="email"]').fill(process.env.TEST_USER_EMAIL!);
+        await page.locator('[data-test="password"]').fill(process.env.TEST_USER_PASSWORD!);
         await page.locator('[data-test="login-submit"]').click();
 
         await expect(page.locator('[data-test="page-title"]')).toContainText('My account');
