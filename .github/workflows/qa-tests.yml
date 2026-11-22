@@ -1,0 +1,58 @@
+
+name: CI - Testes de Qualidade
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tests/**'
+      - 'playwright.config.ts'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/qa-tests.yml'
+
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  testes-automatizados:
+    name: Executar testes Playwright
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Baixar codigo do repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Instalar Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Executar testes automatizados
+        run: npx playwright test --project=chromium
+
+      - name: Publicar relatorio Playwright
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-playwright
+          path: playwright-report/
+          retention-days: 7
+
+      - name: Publicar evidencias de falhas
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencias-falhas
+          path: test-results/
+          retention-days: 7
