@@ -2,7 +2,7 @@
 
 **Sistema:** Practice Software Testing  
 **Responsável:** Gustavo Igor  
-**Revisora:** Diana  
+**Revisora:** Diana da Silva      
 **Ambiente:** Google Chrome - site público
 
 ## 1. Objetivo
