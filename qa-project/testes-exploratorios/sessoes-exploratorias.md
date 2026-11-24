@@ -2,7 +2,7 @@
 
 **Sistema:** Practice Software Testing  
 **Executor:** Gustavo Igor  
-**Revisora:** Diana  
+**Revisora:** Diana da Silva    
 **Data:** 23/11/2026  
 **Ambiente:** Google Chrome - site público
 
