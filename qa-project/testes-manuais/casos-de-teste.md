@@ -3,7 +3,6 @@
 **Sistema:** https://practicesoftwaretesting.com  
 **Executor:** Gustavo Igor  
 **Revisora:** Diana da Silva
-
 **Ambiente:** Google Chrome - site público  
 **Situação:** Execuçã concluída em 23/11/2026
 
