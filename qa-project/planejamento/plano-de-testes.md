@@ -134,10 +134,10 @@ As atividades do projeto foram organizadas com a definição de um responsável 
 
 | Atividade | Responsável (Dono) | Revisora |
 |---|---|---|
-| Planejamento e estratégia de testes | Gustavo Igor | Diana |
+| Planejamento e estratégia de testes | Diana | Gustavo Igor |
 | Testes manuais e exploratórios | Gustavo Igor | Diana |
 | Testes automatizados de interface | Gustavo Igor | Diana |
-| Testes automatizados de API | Gustavo Igor | Diana |
+| Testes automatizados de API | Diana | Gustavo Igor |
 | Análise de qualidade e refatoração | Gustavo Igor | Diana |
 | Gestão de defeitos | Gustavo Igor | Diana |
 | Configuração do CI/CD | Gustavo Igor | Diana |
