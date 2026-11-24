@@ -1,9 +1,11 @@
 // Copyright (c) 2024-2026 Testsmith. All rights reserved.
 // See LICENSE for details.
 
-import {AbstractControl, FormGroup, ValidationErrors, ValidatorFn} from '@angular/forms';
+import {AbstractControl, FormGroup, ValidationErrors, ValidatorFn, FormControl} from '@angular/forms';
 
 export class PasswordValidators {
+  static readonly MIN_LENGTH = 8;
+
   static minLength(min: number): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const isValid = (control.value || '').length >= min;
@@ -40,5 +42,27 @@ export class PasswordValidators {
       const confirmPassword = formGroup.get('new_password_confirmation')?.value;
       return newPassword === confirmPassword ? null : { passwordsMismatch: true };
     };
+  }
+
+  static strength(password: string): string {
+    const value = password || '';
+    const control = new FormControl(value);
+
+    let strength = 0;
+
+    if (!this.minLength(this.MIN_LENGTH)(control)) strength++;
+    if (/[a-z]/.test(value)) strength++;
+    if (/[A-Z]/.test(value)) strength++;
+    if (!this.hasNumber()(control)) strength++;
+    if (!this.hasSymbol()(control)) strength++;
+
+    switch (strength) {
+      case 1: return 'Weak';
+      case 2: return 'Moderate';
+      case 3: return 'Strong';
+      case 4: return 'Very Strong';
+      case 5: return 'Excellent';
+      default: return 'Invalid';
+    }
   }
 }

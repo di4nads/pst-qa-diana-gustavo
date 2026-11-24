@@ -352,7 +352,6 @@
               formControlName="password"
               id="password"
               placeholder="{{ t('fields.password.placeholder') }}"
-              (input)="passwordStrengthIndicator = passwordStrength(f['password'].value)"
               [isInvalid]="submitted && f['password'].errors"
               [ariaDescribedBy]="(f['password'].invalid && submitted) ? 'password-error' : null"
               [ariaInvalid]="f['password'].invalid && submitted ? 'true' : 'false'"
